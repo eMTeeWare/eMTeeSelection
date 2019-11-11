@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_series -> {
                 message.text = ""
                 seriesList.visibility = View.VISIBLE
-                val series = arrayOf("Marvel's Luke Cage - Season 1", "Marvel's Iron Fist - Season 1", "Dexter - Season 5")
+                val series = arrayOf("Marvel's Luke Cage - Season 2", "Marvel's Iron Fist - Season 2", "Dexter - Season 8", "Riverdale - Season 2")
                 seriesList.adapter = ListExampleAdapter(this, series)
                 return@OnNavigationItemSelectedListener true
             }
