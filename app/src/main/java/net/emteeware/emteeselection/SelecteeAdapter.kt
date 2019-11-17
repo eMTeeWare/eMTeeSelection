@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.layout.view.*
  * Created by Merlin Thomas on 19.12.2017.
  * www.emteeware.net
  */
-class SelecteeAdapter(private val context: MainActivity, private val selecteeList: ArrayList<String>)
+class SelecteeAdapter(private val context: MainActivity, private val selecteeList: ArrayList<Selectee>)
     : RecyclerView.Adapter<SelecteeAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -29,9 +29,11 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.selecteeName.text = selecteeList[position]
+        holder.selecteeName.text = selecteeList[position].toString()
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, (selecteeList[position]).plus(" selected "), Toast.LENGTH_LONG).show()
+            Toast.makeText(context, (selecteeList[position]).toString().plus(" selected "), Toast.LENGTH_LONG).show()
+            selecteeList[position].selected = true
+            this.notifyItemChanged(position)
         }
     }
 
