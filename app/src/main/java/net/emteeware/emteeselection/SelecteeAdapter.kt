@@ -33,7 +33,6 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
         holder.itemView.setOnClickListener {
             Toast.makeText(context, (selecteeList[position]).toString().plus(" selected "), Toast.LENGTH_LONG).show()
             selecteeList[position].selected = true
-            holder.selecteeName.setBackgroundResource(R.color.colorPrimaryDark)
             this.notifyItemChanged(position)
         }
     }
