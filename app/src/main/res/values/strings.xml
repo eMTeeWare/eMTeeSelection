@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">eMTee Selection</string>
-    <string name="title_series">Series</string>
-    <string name="title_people">People</string>
-    <string name="title_selections">Selections</string>
 </resources>
