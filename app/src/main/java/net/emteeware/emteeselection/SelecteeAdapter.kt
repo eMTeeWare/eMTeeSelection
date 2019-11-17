@@ -3,6 +3,7 @@ package net.emteeware.emteeselection
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.layout.view.*
@@ -28,14 +29,14 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.selecteeName?.text = selecteeList.get(position)
+        holder.selecteeName.text = selecteeList[position]
         holder.itemView.setOnClickListener {
-            Toast.makeText(context, (selecteeList.get(position)).plus(" selected "), Toast.LENGTH_LONG).show()
+            Toast.makeText(context, (selecteeList[position]).plus(" selected "), Toast.LENGTH_LONG).show()
         }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val selecteeName = view.tvSelecteeName
+        val selecteeName: TextView = view.tvSelecteeName
     }
 
 

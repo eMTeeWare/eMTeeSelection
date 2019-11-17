@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val shows = arrayListOf("Marvel's Luke Cage - Season 2", "Marvel's Iron Fist - Season 2", "Dexter - Season 8", "Riverdale - Season 2")
+    private val shows = arrayListOf("Marvel's Luke Cage - Season 2", "Marvel's Iron Fist - Season 2", "Dexter - Season 8", "Riverdale - Season 2")
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
