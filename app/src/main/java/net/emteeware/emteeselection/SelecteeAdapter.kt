@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.layout.view.*
 
 /**
  * Created by Merlin Thomas on 19.12.2017.
