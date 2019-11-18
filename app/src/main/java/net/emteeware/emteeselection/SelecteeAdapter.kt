@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class SelecteeAdapter(private val context: MainActivity, private val selecteeList: ArrayList<Selectee>)
     : RecyclerView.Adapter<SelecteeAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
                 LayoutInflater.from(context).inflate(
@@ -39,6 +40,5 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val selecteeName: TextView = view.findViewById(R.id.tvSelecteeName)
     }
-
 
 }
