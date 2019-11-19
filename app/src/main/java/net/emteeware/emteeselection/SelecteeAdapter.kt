@@ -14,6 +14,12 @@ import androidx.recyclerview.widget.RecyclerView
 class SelecteeAdapter(private val context: MainActivity, private val selecteeList: ArrayList<Selectee>)
     : RecyclerView.Adapter<SelecteeAdapter.ViewHolder>() {
 
+    init {
+        setHasStableIds(true)
+    }
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
                 LayoutInflater.from(context).inflate(
