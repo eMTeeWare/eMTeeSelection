@@ -1,10 +1,12 @@
 package net.emteeware.emteeselection
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -45,6 +47,11 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val selecteeName: TextView = view.findViewById(R.id.tvSelecteeName)
-    }
 
+        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
+                object : ItemDetailsLookup.ItemDetails<Long>() {
+                    override fun getPosition(): Int = adapterPosition
+                    override fun getSelectionKey(): Long? = itemId
+                }
+    }
 }
