@@ -1,12 +1,11 @@
 package net.emteeware.emteeselection
 
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.selection.ItemDetailsLookup
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -15,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class SelecteeAdapter(private val context: MainActivity, private val selecteeList: ArrayList<Selectee>)
     : RecyclerView.Adapter<SelecteeAdapter.ViewHolder>() {
+
+    var tracker: SelectionTracker<Long>? = null
 
     init {
         setHasStableIds(true)
@@ -37,16 +38,19 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.selecteeName.text = selecteeList[position].toString()
-        holder.itemView.setOnClickListener {
-            Toast.makeText(context, (selecteeList[position]).toString().plus(" selected "), Toast.LENGTH_LONG).show()
-            selecteeList[position].selected = true
-            this.notifyItemChanged(position)
+        val selectee = selecteeList[position]
+        tracker?.let {
+            holder.bind(selectee, it.isSelected(position.toLong()))
         }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val selecteeName: TextView = view.findViewById(R.id.tvSelecteeName)
+        private val selecteeName: TextView = view.findViewById(R.id.tvSelecteeName)
+
+        fun bind(value: Selectee, isActivated: Boolean = false) {
+            selecteeName.text = value.toString()
+            itemView.isActivated = isActivated
+        }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
                 object : ItemDetailsLookup.ItemDetails<Long>() {

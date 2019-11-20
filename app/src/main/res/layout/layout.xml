@@ -8,5 +8,7 @@
         android:id="@+id/tvSelecteeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="26sp" />
+        android:textSize="26sp"
+        android:background="@drawable/item_background"
+        />
 </LinearLayout>
