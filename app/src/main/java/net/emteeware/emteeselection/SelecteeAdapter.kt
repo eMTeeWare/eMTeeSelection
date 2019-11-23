@@ -41,6 +41,10 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
         val selectee = selecteeList[position]
         tracker?.let {
             holder.bind(selectee, it.isSelected(position.toLong()))
+            holder.itemView.setOnClickListener {
+                selectee.selected = !(selectee.selected)
+                this.notifyItemChanged(position)
+            }
         }
     }
 
