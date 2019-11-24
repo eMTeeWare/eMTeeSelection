@@ -40,7 +40,7 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val selectee = selecteeList[position]
         tracker?.let {
-            holder.bind(selectee, it.isSelected(position.toLong()))
+            holder.bind(selectee)
             holder.itemView.setOnClickListener {
                 selectee.selected = !(selectee.selected)
                 this.notifyItemChanged(position)
@@ -51,9 +51,9 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val selecteeName: TextView = view.findViewById(R.id.tvSelecteeName)
 
-        fun bind(value: Selectee, isActivated: Boolean = false) {
+        fun bind(value: Selectee) {
             selecteeName.text = value.toString()
-            itemView.isActivated = isActivated
+            itemView.isActivated = value.selected
         }
 
         fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
