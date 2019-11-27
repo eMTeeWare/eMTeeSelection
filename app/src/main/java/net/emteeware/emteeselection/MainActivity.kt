@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
             Selectee("Riverdale - Season 2"),
             Selectee("Marvel's Luke Cage - Season 2"),
             Selectee("Marvel's Iron Fist - Season 2"),
-            Selectee("Dexter - Season 8"),
             Selectee("Riverdale - Season 2"))
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
