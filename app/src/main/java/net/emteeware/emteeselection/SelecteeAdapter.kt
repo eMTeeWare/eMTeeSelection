@@ -44,6 +44,8 @@ class SelecteeAdapter(private val context: MainActivity, private val selecteeLis
             holder.itemView.setOnClickListener {
                 selectee.selected = !(selectee.selected)
                 this.notifyItemChanged(position)
+                val selectionCount = selecteeList.filter { selectee -> selectee.selected }.count()
+                context.title = "You selected $selectionCount item(s)."
             }
         }
     }
